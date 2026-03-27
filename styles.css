@@ -1,0 +1,137 @@
+* {
+    margin: 0; /* borra espacios externos*/
+    padding: 0; /* borra espacios internos*/
+    box-sizing: border-box; /*tamaños mas faciles de controlar*/
+    font-family: Arial, Helvetica; /* tipografia general*/
+}
+nav {
+    display: flex; /*alctiva FLEXBOX ordena elementos en fila*/
+    justify-content: space-between; /*separa logo y menu*/
+    align-items: center; /* alinea verticalmente*/
+    padding: 20px 50px; /*espacio interno*/
+    background: #0b1b2a; /* color de fondo*/
+    color: white;
+}
+nav ul {
+    display: flex; /*pone las listas en fila*/
+    list-style: none; /*elimina los puntios de lista*/
+}
+nav ul li {
+    margin-left: 20px; /*separa cada opcion del menu*/
+}
+nav a {
+    color: white; /*elimina subrayado*/
+    text-decoration: none; /*pone texto en blanco*/
+}
+.hero { /*HERO es la Seccion Principal - vh altura de pantalla - 90vh ocupa casi toda la pantalla*/
+    height: 90vh;
+    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,.6)),url("fondo.jpg");
+    background-size: cover; /*la imagen cubre todo*/
+    background-position: center; /* imagen centrada*/
+    display: flex; 
+    align-items: center; /* centrar contenido verticalmente*/
+    padding-left: 50px; /*mueve texto a la izquierda*/
+    color: white; /*texto blanco*/
+}
+.hero-text h1 {
+    font-size: 3em; /*agranda el texto principal*/
+}
+.hero-text p {
+    margin: 15px 0; /*espacio arriba/abajo */
+    font-size: 1.2em; /* tamaño medio*/
+}
+.btn {
+    display: inline-block; /*permite tamaño y padding*/
+    padding: 12px 25px; /*hace el boton grande*/
+    background: #e63946; /*color rojo*/
+    color: white; 
+    text-decoration: none;
+    border-radius: 5px; /*bordes redondeados*/
+    transition: 0,3s; /*animacion suave*/
+}
+.btn:hover {
+    background: #c1121f; /*cuando pasas el mouse cambia de color */
+}
+.servicios {
+    padding: 60px 20px; /*espacio grande ariba y abajo*/
+    text-align: center; /*centra el texto*/
+}
+.cards {
+    display: flex; /*pone las cards en fila*/
+    justify-content: center;
+    margin-top: 30px;
+    gap: 20px; /*espacio entre ellas*/
+}
+.card {
+    background: #f1f1f1; /* fondo claro*/
+    padding: 20px; /*tamaño fijo*/
+    border-radius: 10px; /*bordes redondeados*/
+    width: 250px;
+    transition: 0,3s; /*animacion*/
+}
+.card:hover {
+    transform: translateY(-10px); /*cuando pasas el mouse sube el efecto flotante*/
+}
+.cta {
+    display: flex, inline-block;
+    flex-direction: column;
+    border-radius: 5px;
+    background: #1d3557; /*fondo oscuro*/
+    color: white;
+    text-align: center; /*texto centrado*/
+    padding: 12px 25px;
+    gap: 20px; /*separacion arriba y abajo*/
+}
+.contacto {
+    padding: 50px;
+    text-align: center;  /*simple y limpio*/
+}
+footer {
+    background: #1d3557; /*fondo oscuro*/
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+.whatsapp {
+    background: #25D366;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.whatsapp:hover{
+    background: #1ebe5d;
+    transform: scale(1.05);
+}
+@media (max-width:768px){
+    .hero{
+        padding: 20px;
+        text-align: center;
+    }
+    .hero-text h1{
+        font-size: 2em;
+    }
+    .cards{
+        flex-direction: column;
+        align-items: center;
+    }
+    .card{
+        width: 90%;
+    }
+    .cta{
+        padding: 50px 20px;
+    }
+    .whatsapp{
+        width: 100%;
+        justify-content: center;
+        font-size: 1.1em;
+    }
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    };
+}
