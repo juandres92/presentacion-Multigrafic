@@ -1,3 +1,4 @@
+/* --- ESTILOS GENERALES --- */
 * {
     margin: 0;
     padding: 0;
@@ -5,18 +6,26 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* --- NAVEGACIÓN --- */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
-    background: #000000;
+    padding: 15px 45px;
+    background: #1d3557;
     color: white;
+    position: relative;
+}
+
+.nav-logo {
+    text-decoration: none;
+    color: inherit;
+    z-index: 1001;
 }
 
 nav ul {
     display: flex;
-    list-style:none;
+    list-style: none;
 }
 
 nav ul li {
@@ -28,45 +37,50 @@ nav a {
     text-decoration: none;
 }
 
+/* --- BOTÓN HAMBURGUESA --- */
+.menu-toggle {
+    display: none; 
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
 /* --- SECCIÓN HERO --- */
 .hero { 
-    height: 90vh;
-    background: linear-gradient(rgba(181, 181, 181, 0.503),rgba(0,0,0,.6));
-    background-size: cover;
-    background-position: center;
-    display: block;
-    position: relative;
-    overflow: hidden;
-    color: white;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    background: aliceblue;
+    color: #050505;
 }
 
 .hero-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 100%;
-    height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     align-items: center;
 }
 
 .hero-text-column {
-    padding-left: 80px;
-    z-index: 60;
-    color: #000000;
+    padding: 40px;
 }
 
-.hero-text-column h1 {
-    font-size: 3.5em;
-    margin-bottom: 20px;
-}
-
-.hero-text-column p {
-    font-size: 1.4em;
-    margin-bottom: 30px;
-}
+.hero-text-column h1 { font-size: 2.6em; margin-bottom: 20px; }
 
 .hero-image-column {
-    width: 100%;
-    height: 100%;
+    position: relative;
+    height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,178 +88,182 @@ nav a {
 
 .image-slider-wrapper {
     position: relative;
-    width: 75%;
-    height: 250px; /* Corregido: antes decía 80 sin unidad */
-    max-width: 700px;
+    width: 100%; /* Ajustado al 100% para evitar recortes */
+    height: 100%;
 }
 
 .slider-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 0;
-    box-shadow: none transparent; /* Corregido: faltaba una coma */
+    position: absolute; /* Mantenemos absolute para que se encimen */
+    max-width: 100%; /* No se pasan del ancho */
+    max-height: 100%; /* No se pasan de la altura */
+    width: auto; /* Mantienen proporción original */
+    height: auto; /* Mantienen proporción original */
+    object-fit: contain; /* Garantiza que se vea entero */
     opacity: 0;
-    transition: opacity 1.5s;
+    transition: opacity 1s;
+    /* Los márgenes automáticos logran el centrado en absoluto */
+    top: 0; bottom: 0; left: 0; right: 0;
+    margin: auto;
 }
 
-/* --- ANIMACIÓN DE DESVANECIMIENTO --- */
-@keyframes crossFade {
-    0% { opacity: 1; }
-    40% { opacity: 1; }
-    50% { opacity: 0; }
-    90% { opacity: 0; }
-    100% { opacity: 1; }
+/* --- ANIMACIÓN HERO --- */
+@keyframes SmoothFade {
+    0% { opacity: 0; }            /* Empieza invisible */
+    10% { opacity: 1; }           /* Aparece suavemente (10% del tiempo) */
+    40% { opacity: 1; }           /* Se mantiene visible (hasta el 40%) */
+    50% { opacity: 0; }           /* Desaparece suavemente (del 40% al 50%) */
+    100% { opacity: 0; }          /* Se mantiene invisible el resto del tiempo */
+}
+.img-1 { 
+    animation: SmoothFade 10s infinite; 
 }
 
-.img-1 {
-    animation: crossFade 10s infinite;
+.img-2 { 
+    animation: SmoothFade 10s infinite; 
+    animation-delay: 5s; /* Empieza justo cuando la img-1 termina su fade-out */
 }
 
-.img-2 {
-    animation: crossFade 10s infinite;
-    animation-delay: 5s;
-}
-
-/* --- RESTO DE SECCIONES --- */
-.btn {
-    display: inline-block;
-    padding: 12px 25px;
-    background: #e63946;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    background: #c1121f;
-}
-
-.servicios {
+/* --- QUIENES SOMOS --- */
+.quienes-somos {
     padding: 60px 20px;
     text-align: center;
+    background-color: aliceblue;
+    color: black;
 }
 
-.cards {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-    gap: 20px;
-}
+.quienes-somos .container { max-width: 800px; margin: 0 auto; }
+.quienes-somos h2 { font-size: 2.5em; margin-bottom: 20px; }
+.quienes-somos p { font-size: 1.1em; line-height: 1.6; margin-bottom: 15px; }
 
-.card {
-    background: #f1f1f1;
-    padding: 20px;
-    border-radius: 10px;
-    width: 260px;
-    transition: 0.3s;
-}
+/* --- SERVICIOS Y CARDS --- */
+.servicios { padding: 60px 20px; text-align: center; background: aliceblue; }
+.cards { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 30px; }
+.card { background: #075E9C; padding: 20px; border-radius: 10px; width: 260px; color: white; transition: 0.3s; }
+.card:hover { transform: translateY(-10px); }
 
-.card:hover {
-    transform: translateY(-10px);
-}
+/* --- CONTACTO Y WHATSAPP --- */
+.cta-group { display: flex; justify-content: center; background: #1d3557; padding: 30px 20px; flex-wrap: wrap; gap: 20px; }
+.cta { background: #1d3557; color: white; text-align: center; flex: 1; max-width: 400px; display: flex; flex-direction: column; gap: 10px; align-items: center; }
+.cta h2 { font-size: 1.6em; }
+.cta p { font-size: 0.9em; }
 
-.cta {
-    display: flex;
-    flex-direction:column;
-    align-items: center;
-    background: #1d3557;
-    color: white;
-    padding: 40px 20px;
-    gap: 20px;
-    flex: 1; /* Hace que ambos midan lo mismo */
-    max-width: 450px; /* Evita que se estiren demasiado */
-    padding: 20px !important; /* Reduce el espacio interno */
-    gap: 10px !important; /* Junta más el texto del botón */
-}
-.cta-group {
-    display: flex;
-    justify-content: center;
-    background: #1d3557; /* Mismo fondo para que parezca una sola banda */
-    padding: 20px;
-    gap: 40px;
-}
-.cta h2 {
-    font-size: 1.2em;
-}
-.cta p {
-    font-size: 0.9em;
-}
-
-.contacto {
-    padding: 10px;
-    text-align: center;
-    background: #1d3557;
-    color: white;
-}
-
-footer {
-    background: #1d3557;
-    color: white;
-    text-align: center;
-    padding: 5px;
-}
+/* Botones WhatsApp personalizados */
+.btn-sellos { background-color: #25D366 !important; }
+.btn-imprenta { background-color: #075E9C !important; }
 
 .whatsapp {
-    background: #25D366;
     display: inline-flex;
     align-items: center;
+    padding: 12px 25px;
     gap: 10px;
     border-radius: 50px;
+    color: white;
+    text-decoration: none;
     font-weight: bold;
+    margin-top: 10px;
+    transition: transform 0.2s;
 }
 
-/* --- RESPONSIVE --- */
+.whatsapp:hover {
+    transform: scale(1.05);
+}
+
+.wa-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.contacto { padding: 40px 20px; text-align: center; background: #1d3557; color: white; }
+footer { background: aliceblue; color: black; text-align: center; padding: 15px; }
+
+/* --- RESPONSIVE (MÓVIL) --- */
 @media (max-width: 768px) {
-    .cta {
+    .menu-toggle { display: flex; }
+
+    /* Menú flotante a la derecha y no tan ancho */
+nav ul {
+        display: flex; /* Ahora siempre es flex para que la animación funcione */
+        flex-direction: column;
+        position: absolute;
+        
+        /* 1. ELIMINAR EL HUECO: Se alinea justo bajo la barra de nav */
+        top: 100%; /* Empieza exactamente donde termina el nav */
+        right: 0;   /* Alineado al borde derecho del nav */
+        
+        /* 2. TRANSPARENCIA: Usamos RGBA para el fondo (0.8 = 80% opaco) */
+        background: rgba(29, 53, 87, 0.85); /* Fondo azul con transparencia */
+        
+        /* 3. TAMAÑO COMPACTO: Ancho adaptable y altura automática */
+        width: auto;         /* Se adapta al texto */
+        min-width: 180px;    /* Ancho mínimo */
+        height: 0;           /* EMPALMADO: Altura 0 para empezar oculto */
+        
+        /* 4. ANIMACIÓN DE DESPLIEGUE: Se expande la altura gradualmente */
+        overflow: hidden;    /* Oculta el texto cuando la altura es 0 */
+        transition: height 0.4s ease-in-out, opacity 0.3s ease; /* Suavidad */
+        opacity: 0;          /* Invisibilidad inicial */
+        
+        /* Estetica del cuadro */
+        border-radius: 0 0 8px 8px; /* Redondeado solo abajo */
+        box-shadow: -2px 5px 15px rgba(0,0,0,0.2);
+        z-index: 1000;
+        
+        justify-content: flex-start; /* Empieza arriba */
+        align-items: center; /* Texto centrado horizontalmente */
+        
+        padding: 0; /* Sin padding inicial para que la altura sea 0 */
+    }
+nav ul.active { 
+        height: auto;        /* Se expande hasta su altura natural */
+        opacity: 1;          /* Se vuelve visible */
+        padding: 20px 0;     /* Recuperamos el padding vertical */
+    }
+
+nav ul li {
+        margin: 0;           /* Sin márgenes externos */
         width: 100%;
-        max-width: 350px;
-    }
-    .cta-group {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        padding: 20px;
-    }
-    .hero-container {
-        grid-template-columns: 1fr; /* Una sola columna */
         text-align: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding-top: 20px;
+        opacity: 0;          /* Texto invisible inicialmente */
+        transition: opacity 0.3s ease 0.2s; /* Pequeño delay para que se vea luego del despliegue */
     }
-    .hero-text-column {
-        padding: 20px;
+    nav ul.active li {
+        opacity: 1;
+        margin: 10px 0;      /* Espacio entre botones */
     }
-    .hero-text-column h1 {
-        font-size: 2.2rem; /* Tamaño de letra más apto para celular */
-    }
-
-    .image-slider-wrapper {
-        width: 80%;
-        height: 280px; /* Altura más compacta */
-        margin: 0 auto;
+    nav ul li a {
+        display: block; /* Ocupa todo el li */
+        width: 100%;
+        font-size: 1.1em;
     }
 
-    .cards {
-        flex-direction: column;
-        align-items: center;
+    /* Proporciones Hero en móvil para que entren las imágenes */
+    .hero { min-height: 65vh; }
+    
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
     }
 
-    nav {
-        flex-direction: column;
-        padding: 15px;
-        gap: 15px;
+    .hero-text-column { 
+    padding: 20px;
+ }
+    .hero-text-column h1 { font-size: 2.1em; }
+
+    /* Asegura el espacio para que la animación se vea bien */
+ .hero-image-column { 
+        height: 250px; /* Altura más compacta */
+        order: -1; /* Logo arriba */
+        margin-top: 20px;
     }
-    nav ul {
-        gap: 15px;
-    }
-    nav ul li {
-        margin-left: 0;
-    }
+    
+.image-slider-wrapper { 
+    position: relative; 
+    width: 90%; 
+    height: 90%; 
+    display: flex; /* Necesario para el centrado de los hijos */
+    justify-content: center; /* Centra las imágenes horizontalmente */
+    align-items: center; /* Centra las imágenes verticalmente */
+}
+
+    .cta-group { flex-direction: column; align-items: center; }
 }
