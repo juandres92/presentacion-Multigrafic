@@ -3,7 +3,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Open Sans',sans-serif;
+}
+h1,h2,h3, .nav-logo h1{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase; /*para look coorporativo*/
+    letter-spacing: 1px;
 }
 
 /* --- NAVEGACIÓN --- */
@@ -76,7 +82,16 @@ nav a {
     padding: 40px;
 }
 
-.hero-text-column h1 { font-size: 2.6em; margin-bottom: 20px; }
+.hero-text-column h1 {
+    font-size: 3em;
+    line-height: 1.1;
+    color: #1d3557;
+}
+.hero-text-column p{
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #333;
+}
 
 .hero-image-column {
     position: relative;
@@ -131,19 +146,69 @@ nav a {
     color: black;
 }
 
-.quienes-somos .container { max-width: 800px; margin: 0 auto; }
-.quienes-somos h2 { font-size: 2.5em; margin-bottom: 20px; }
-.quienes-somos p { font-size: 1.1em; line-height: 1.6; margin-bottom: 15px; }
+.quienes-somos .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.quienes-somos h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+.quienes-somos p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
 
 /* --- SERVICIOS Y CARDS --- */
-.servicios { padding: 60px 20px; text-align: center; background: aliceblue; }
-.cards { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 30px; }
-.card { background: #075E9C; padding: 20px; border-radius: 10px; width: 260px; color: white; transition: 0.3s; }
-.card:hover { transform: translateY(-10px); }
+.servicios {
+    padding: 60px 20px;
+    text-align: center;
+    background: aliceblue;
+}
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+.card {
+    background: #075E9C;
+    padding: 20px;
+    border-radius: 10px;
+    width: 260px;
+    color: white;
+    transition: 0.3s;
+}
+.card h3{
+    margin-bottom: 15px;
+    font-size: 1.4em;
+}
+.card:hover {
+    transform: translateY(-10px);
+}
 
 /* --- CONTACTO Y WHATSAPP --- */
-.cta-group { display: flex; justify-content: center; background: #1d3557; padding: 30px 20px; flex-wrap: wrap; gap: 20px; }
-.cta { background: #1d3557; color: white; text-align: center; flex: 1; max-width: 400px; display: flex; flex-direction: column; gap: 10px; align-items: center; }
+.cta-group {
+    display: flex;
+    justify-content: center;
+    background: #1d3557;
+    padding: 30px 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.cta {
+    background: #1d3557;
+    color: white;
+    text-align: center;
+    flex: 1;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
 .cta h2 { font-size: 1.6em; }
 .cta p { font-size: 0.9em; }
 
@@ -173,12 +238,76 @@ nav a {
     height: 20px;
 }
 
-.contacto { padding: 40px 20px; text-align: center; background: #1d3557; color: white; }
-footer { background: aliceblue; color: black; text-align: center; padding: 15px; }
+.contacto {
+    padding: 60px 20px;
+    text-align: center;
+    background: #1d3557;
+    color: white;
+}
+.container-contacto{
+    max-width: 900px;
+    margin: 0 auto;
+}
+.contacto-info p {
+    margin: 10px 0;
+    font-style: 1.1em;
+}
+/* Botón de GPS */
+.btn-maps {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 25px;
+    background-color: #ffffff;
+    color: #1d3557;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+.btn-maps:hover {
+    background-color: #e63946; /* Rojo para combinar con tu nuevo botón flotante */
+    color: white;
+}
+
+/* Contenedor del Mapa */
+.mapa-container {
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Ajuste para móviles */
+footer {
+    background:#1d3557;
+    color: white;
+    text-align: center;
+    padding: 30px 10px;
+    background-image: linear-gradient(white, white);
+    background-size: 80% 1.5%;
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+footer p{
+    font-family: 'Montserrat' sans-serif;
+    font-size: 1em;
+    letter-spacing: 1px;
+    margin-top: 15px;
+}
 
 /* --- RESPONSIVE (MÓVIL) --- */
 @media (max-width: 768px) {
-    .menu-toggle { display: flex; }
+    .fab-boton{
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 15px;
+    }
+    .menu-toggle {
+        display: flex;
+    }
+    .mapa-container iframe{
+        height: 250px;
+    }
 
     /* Menú flotante a la derecha y no tan ancho */
 nav ul {
@@ -191,11 +320,11 @@ nav ul {
         right: 0;   /* Alineado al borde derecho del nav */
         
         /* 2. TRANSPARENCIA: Usamos RGBA para el fondo (0.8 = 80% opaco) */
-        background: rgba(29, 53, 87, 0.85); /* Fondo azul con transparencia */
+        background: rgba(29, 53, 87, 0.95); /* Fondo azul con transparencia */
         
         /* 3. TAMAÑO COMPACTO: Ancho adaptable y altura automática */
         width: auto;         /* Se adapta al texto */
-        min-width: 180px;    /* Ancho mínimo */
+        min-width: 220px;    /* Ancho mínimo */
         height: 0;           /* EMPALMADO: Altura 0 para empezar oculto */
         
         /* 4. ANIMACIÓN DE DESPLIEGUE: Se expande la altura gradualmente */
@@ -205,7 +334,7 @@ nav ul {
         
         /* Estetica del cuadro */
         border-radius: 0 0 8px 8px; /* Redondeado solo abajo */
-        box-shadow: -2px 5px 15px rgba(0,0,0,0.2);
+        box-shadow: -2px 5px 15px rgba(0,0,0,0.3);
         z-index: 1000;
         
         justify-content: flex-start; /* Empieza arriba */
@@ -216,15 +345,15 @@ nav ul {
 nav ul.active { 
         height: auto;        /* Se expande hasta su altura natural */
         opacity: 1;          /* Se vuelve visible */
-        padding: 20px 0;     /* Recuperamos el padding vertical */
+        padding: 25px 15px;     /* Recuperamos el padding vertical */
     }
 
 nav ul li {
         margin: 0;           /* Sin márgenes externos */
         width: 100%;
         text-align: center;
-        opacity: 0;          /* Texto invisible inicialmente */
-        transition: opacity 0.3s ease 0.2s; /* Pequeño delay para que se vea luego del despliegue */
+        font-size: 1.2em;
+        padding: 5px 0;
     }
     nav ul.active li {
         opacity: 1;
@@ -266,4 +395,41 @@ nav ul li {
 }
 
     .cta-group { flex-direction: column; align-items: center; }
+}
+/* --- ESTILO DEL BOTÓN FLOTANTE (FAB) --- */
+.fab-boton {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #e63946; /* Rojo vibrante */
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 50px; /* Bordes muy redondeados */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombreado blando */
+    z-index: 2000; /* Por encima de todo */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    font-family: 'Montserrat', sans-serif; /* Usando la fuente llamativa */
+    font-weight: 600;
+}
+.fab-contenido {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre icono y texto */
+}
+.phone-icon {
+    width: 18px;
+    height: 18px;
+    fill: white;
+}
+.fab-boton span {
+    font-size: 1rem;
+}
+/* Efecto al pasar el mouse */
+.fab-boton:hover {
+    transform: scale(1.1);
+    background-color: #d62828; /* Rojo un poco más oscuro */
 }
