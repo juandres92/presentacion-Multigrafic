@@ -34,3 +34,33 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+const track = document.getElementById('logo-track');
+const cantidadLogos = 22; 
+
+for (let i = 1; i <= cantidadLogos; i++) {
+    const img = document.createElement('img');
+    img.src = `logo/${i}.png`;
+    img.alt = `Cliente ${i}`;
+
+    img.onload = function() {
+        // Calculamos la relación de aspecto
+        const ratio = this.naturalWidth / this.naturalHeight;
+        
+        // Si el ratio está entre 0.8 y 1.2, lo consideramos cuadrado/circular
+        if (ratio > 0.8 && ratio < 1.2) {
+            this.classList.add('logo-cuadrado');
+        } else {
+            this.classList.add('logo-rectangular');
+        }
+        
+        // Solo duplicamos cuando el último logo haya cargado para evitar errores de estilo
+        if (i === cantidadLogos) {
+            setTimeout(() => {
+                const clones = track.innerHTML;
+                track.innerHTML += clones;
+            }, 100); 
+        }
+    };
+
+    track.appendChild(img);
+}
