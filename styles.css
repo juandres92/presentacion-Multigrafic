@@ -297,6 +297,31 @@ footer p{
 
 /* --- RESPONSIVE (MÓVIL) --- */
 @media (max-width: 768px) {
+    .clientes-section h2 {
+        margin-bottom: 2rem;
+    }
+
+    .carousel-track {
+        /* En móvil, 2.5rem es suficiente para que no se encimen */
+        gap: 2.5rem; 
+    }
+
+    .carousel-track img {
+        height: 3.8rem; 
+    }
+    .carousel-track img{
+        width: 80px;
+        height: 80px;
+        min-width: auto;
+        max-width: 140px;
+        width: auto;
+        object-fit: contain;
+        padding: 5px;
+    }
+    .carousel-track {
+        gap: 1.5rem;
+        animation-duration: 20s;
+    }
     .fab-boton{
         bottom: 20px;
         right: 20px;
@@ -432,4 +457,109 @@ nav ul li {
 .fab-boton:hover {
     transform: scale(1.1);
     background-color: #d62828; /* Rojo un poco más oscuro */
+}
+.clientes-section{
+    background-color: #1d3557;
+    padding: 1.5rem 0;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+.clientes-section h2{
+    color: white;
+    margin-bottom: 2.5rem;
+    font-size: 1.8rem;
+}
+.carousel-container{
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.carousel-track {
+    display: flex;
+    align-items: center; /* Alineación vertical central */
+    gap: 3rem; 
+    width: max-content;
+    animation: scroll-infinito 60s linear infinite;
+}
+/* Estilo base para todos los logos en el track */
+.carousel-track img {
+    filter: invert(100%) brightness(200%);
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    display: block;
+}
+/* Los rectangulares mantienen una altura estándar */
+.logo-rectangular {
+    height: 55px; 
+    width: auto;
+    max-width: 160px;
+}
+/* Los cuadrados se agrandan en altura para ganar peso visual */
+.logo-cuadrado {
+    height: 85px; /* Aumentamos la altura para que destaque */
+    width: auto;
+    padding: 0 10px;
+}
+/* Regulación para imágenes CUADRADAS */
+.carousel-track img.logo-cuadrado {
+    padding: 0 15px;
+    max-width: 140px; /* Mismo ancho que alto */
+}
+/* Regulación para imágenes RECTANGULARES */
+.carousel-track img.logo-rectangular {
+    padding: 0 20px;
+    max-width: 150px; /* Permite que sean más anchas */
+}
+.carousel-track img:hover{
+    transform: scale(1.1);
+}
+@keyframes scroll-infinito {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* Se desplaza exactamente la mitad del ancho total del track 
+           porque duplicamos los logos en el JS */
+        transform: translateX(-50%);
+    }
+}
+
+/* Degradados en los bordes para un efecto de "desvanecido" (Opcional) */
+.carousel-container::before,
+.carousel-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 100%;
+    z-index: 2;
+}
+
+.carousel-container::before {
+    left: 0;
+    background: linear-gradient(to right, #1d3557, transparent);
+}
+
+.carousel-container::after {
+    right: 0;
+    background: linear-gradient(to left, #1d3557, transparent);
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 768px) {
+    .logo-rectangular { height: 40px; }
+    .logo-cuadrado { height: 60px; }
+    .carousel-track { gap: 1.5rem; }
+    .carousel-track {
+        gap: 1.5rem;
+        animation-duration: 100s; /* Más rápido en móvil por menos espacio */
+    }
+.carousel-track img {
+        width: 140px;
+        height: 80px;
+        padding: 5px;
+    }
 }
